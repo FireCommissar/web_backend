@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 // Проверяем ошибки.
 $errors = FALSE;
-if (empty($_POST['fio']) || !preg_match('/^[А-Яа-яA-Za-z\n\r\s.,]*$/', $_POST['fio'])) {
+if (empty($_POST['fio']) || !preg_match('/^[а-яА-ЯA-Za-z\n\r\s.,]*$/', $_POST['fio'])) {
   print('Заполните имя.<br/>');
   $errors = TRUE;
 }
