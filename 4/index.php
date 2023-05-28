@@ -174,7 +174,12 @@ else {
               break;
           }
       }
-      setcookie('abilities_value', serialize($_POST['abilities']), time() + 365 * 24 * 60 * 60);
+      $abs=array();
+      
+      foreach ($_POST['abilities'] as $res) {
+          $abs[$res-1] = $res;
+      }
+      setcookie('abilities_value', serialize($abs), time() + 365 * 24 * 60 * 60);
   }
 
   
@@ -224,9 +229,9 @@ else {
   }
 
   // Сохранение в БД.
-  $user = 'u52843';
-  $pass = '5813998';
-  $db = new PDO('mysql:host=localhost;dbname=u52843', $user, $pass,
+  $user = 'u52999';
+  $pass = '4757116';
+  $db = new PDO('mysql:host=localhost;dbname=u52999', $user, $pass,
       [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]); // Заменить test на имя БД, совпадает с логином uXXXXX
       
       // Подготовленный запрос. Не именованные метки.
