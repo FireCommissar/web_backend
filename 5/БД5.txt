@@ -1,0 +1,73 @@
+
+CREATE TABLE application2 (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  name varchar(128) NOT NULL DEFAULT '',
+  email varchar(128) NOT NULL DEFAULT '',
+  date_of_birth date DEFAULT NULL,
+  gender varchar(1) NOT NULL,
+  limbs int(1) unsigned NOT NULL,
+  bio text NOT NULL DEFAULT '',
+  checkbox int(1) unsigned NOT NULL,
+  user_id int(10) unsigned NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE app_ability2 (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  id_app int(10) unsigned DEFAULT NULL,
+  id_ab int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (id)
+);
+CREATE TABLE ability2 (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  title varchar(128) NOT NULL DEFAULT '',
+  PRIMARY KEY (id)
+);
+INSERT INTO ability2 (title) values ('бессмертие');
+INSERT INTO ability2 (title) values ('прохождение сквозь стены');
+INSERT INTO ability2 (title) values ('левитация');
+
+CREATE TABLE user (
+  id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  user varchar(128) NOT NULL DEFAULT '',
+  pass varchar(128) NOT NULL DEFAULT '',
+  PRIMARY KEY (id)
+);
+
+MariaDB [u52999]> select * from application2;
++----+------+---------------------+---------------+--------+-------+-----+----------+---------+
+| id | name | email               | date_of_birth | gender | limbs | bio | checkbox | user_id |
++----+------+---------------------+---------------+--------+-------+-----+----------+---------+
+|  1 | test | vladkmi35@gmail.com | 2023-05-24    | m      |     2 | ttt |        1 |       1 |
++----+------+---------------------+---------------+--------+-------+-----+----------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [u52999]> select * from user;
++----+----------+--------------------------------------------------------------+
+| id | user     | pass                                                         |
++----+----------+--------------------------------------------------------------+
+|  1 | 34611727 | $2y$10$.nVMzQKpBGuQcVK2v/U5Q.1EShYphCCGaQOqgxIrMa5hlykBbupiW |
++----+----------+--------------------------------------------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [u52999]> select * from app_ability2;
++----+--------+-------+
+| id | id_app | id_ab |
++----+--------+-------+
+|  1 |      1 |     1 |
+|  2 |      1 |     2 |
++----+--------+-------+
+2 rows in set (0.000 sec)
+
+MariaDB [u52999]> select * from ability2;
++----+------------------------------------------------+
+| id | title                                          |
++----+------------------------------------------------+
+|  1 | бессмертие                                     |
+|  2 | прохождение сквозь стены                       |
+|  3 | левитация                                      |
+|  4 | бессмертие                                     |
+|  5 | прохождение сквозь стены                       |
+|  6 | левитация                                      |
++----+------------------------------------------------+
+6 rows in set (0.000 sec)
